@@ -8,7 +8,9 @@ class HomeView extends StatelessWidget {
   static String id = 'Home View';
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    
+    return  Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add,),backgroundColor: const Color.fromARGB(255, 121, 181, 209),),
       body: Column(
         children: [
           NotesAppBar(),
@@ -18,4 +20,5 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+
 
