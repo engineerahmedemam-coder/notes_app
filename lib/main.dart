@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes/views/home_view.dart';
-
+import 'models/notes_model.dart';
 void main() {
   runApp(NotesApp());
 }
