@@ -22,10 +22,10 @@ class FloatingButton extends StatelessWidget {
                   Navigator.pop(context);
                 }
                 if (state is AddNotesFailure) {
-                  print('failed');
+                  print('failed ${state.errMessage}');
                 }
 
-                if (state is AddNotesLoading){
+                
                 return Stack(
                   children: [ 
                     
@@ -41,7 +41,7 @@ class FloatingButton extends StatelessWidget {
 
                   ]
                   );
-                }
+                
               },
             );
           },
