@@ -6,6 +6,7 @@ import 'models/notes_model.dart';
 void main() async{
   await Hive.initFlutter();
   await Hive.openBox(kNotesBox);
+  Hive.registerAdapter(NotesModelAdapter());
   runApp(NotesApp());
 }
 
