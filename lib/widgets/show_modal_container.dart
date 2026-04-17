@@ -6,16 +6,11 @@ import 'package:notes/widgets/add_button.dart';
 import 'package:notes/widgets/custom_text_field.dart';
 
 class ShowModalContainer extends StatelessWidget {
-  const ShowModalContainer({
-    super.key,
-  });
+  const ShowModalContainer({super.key});
 
-
-
-  @override 
+  @override
   Widget build(BuildContext context) {
-       return FormField();
-      
+    return FormField();
   }
 }
 
@@ -27,7 +22,7 @@ class FormField extends StatefulWidget {
 }
 
 class _FormFieldState extends State<FormField> {
-    final GlobalKey<FormState>  globalKey = GlobalKey();
+  final GlobalKey<FormState> globalKey = GlobalKey();
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -37,34 +32,50 @@ class _FormFieldState extends State<FormField> {
     return Form(
       key: globalKey,
       autovalidateMode: autovalidateMode,
-      child:  SingleChildScrollView(
-             child: Column(
-              children: [
-                CustomTextField(hintText: 'tiltle', onSaved: (value) {
-                  title = value;
-                },),
-                CustomTextField(hintText: 'content', maxLines: 8, onSaved: (value) {
-                  subtitle = value;
-                },),
-                AddButton(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomTextField(
+              hintText: 'tiltle',
+              onSaved: (value) {
+                title = value;
+              },
+            ),
+            CustomTextField(
+              hintText: 'content',
+              maxLines: 8,
+              onSaved: (value) {
+                subtitle = value;
+              },
+            ),
+            BlocBuilder<AddNotesCubit, AddNotesState>(
+              builder: (context, state) {
+                
+                return AddButton(
+                  isLoading: state is AddNotesLoading ? true : false ,
                   onTap: () {
-                    if (globalKey.currentState!.validate()){
+                    if (globalKey.currentState!.validate()) {
                       globalKey.currentState!.save();
-                      var noteModel = NotesModel(title: title!, subtitle: subtitle!, color: Colors.blue.toARGB32(), date: DateTime.now().toString());
-                      BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
-                    }else{
+                      var noteModel = NotesModel(
+                        title: title!,
+                        subtitle: subtitle!,
+                        color: Colors.blue.toARGB32(),
+                        date: DateTime.now().toString(),
+                      );
+                      BlocProvider.of<AddNotesCubit>(
+                        context,
+                      ).addNote(noteModel);
+                    } else {
                       autovalidateMode = AutovalidateMode.always;
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     }
                   },
-                )
-              ],
-             ),
-           ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
-
-

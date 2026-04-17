@@ -15,14 +15,15 @@ class NotesFormSheet extends StatelessWidget {
       child: BlocConsumer<AddNotesCubit, AddNotesState>(
         listener: (context, state) {
           // TODO: implement listener
-        },
-        builder: (context, state) {
-          if (state is AddNotesSuccess) {
+           if (state is AddNotesSuccess) {
             Navigator.pop(context);
           }
           if (state is AddNotesFailure) {
             print('failed ${state.errMessage}');
           }
+        },
+        builder: (context, state) {
+         
     
           return Stack(
             children: [
