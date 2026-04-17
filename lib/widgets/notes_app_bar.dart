@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class NotesAppBar extends StatelessWidget {
-  const NotesAppBar({super.key});
-
+  const NotesAppBar({super.key, required this.title, required this.icon, required this.onPressed});
+  final String title;
+  final IconData icon;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +13,7 @@ class NotesAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
 
-          Text('Notes App', style: TextStyle(
+          Text(title, style: TextStyle(
             fontSize: 30
           ),),
           Container(
@@ -21,7 +23,7 @@ class NotesAppBar extends StatelessWidget {
             ),
             padding: EdgeInsets.all(8),
             
-            child: Icon(Icons.search, size: 24,)
+            child: IconButton(onPressed: onPressed, icon: Icon(icon))
             )
         
         ],

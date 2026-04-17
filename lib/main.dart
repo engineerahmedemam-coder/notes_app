@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notes/constants/constants.dart';
 import 'package:notes/simple_bloc_observer.dart';
+import 'package:notes/views/edit_view.dart';
 import 'package:notes/views/home_view.dart';
 import 'models/notes_model.dart';
 void main() async {
@@ -29,7 +30,8 @@ class NotesApp extends StatelessWidget {
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
         routes: {
-          HomeView.id: (context) => HomeView()
+          HomeView.id: (context) => HomeView(),
+          EditView.id : (context) => EditView()
                },
         initialRoute: HomeView.id,
 

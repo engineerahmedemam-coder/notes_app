@@ -10,18 +10,18 @@ class ShowModalContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FormField();
+    return AddNoteForm();
   }
 }
 
-class FormField extends StatefulWidget {
-  const FormField({super.key});
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({super.key});
 
   @override
-  State<FormField> createState() => _FormFieldState();
+  State<AddNoteForm> createState() => _AddNoteFormState();
 }
 
-class _FormFieldState extends State<FormField> {
+class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> globalKey = GlobalKey();
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -36,7 +36,7 @@ class _FormFieldState extends State<FormField> {
         child: Column(
           children: [
             CustomTextField(
-              hintText: 'tiltle',
+              hintText: 'title',
               onSaved: (value) {
                 title = value;
               },
