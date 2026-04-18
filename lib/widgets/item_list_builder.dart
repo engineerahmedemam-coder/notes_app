@@ -6,18 +6,20 @@ import 'package:notes/widgets/notes_item_card.dart';
 
 class ItemsListBuilder extends StatelessWidget {
   const ItemsListBuilder({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesCubitState>(
       builder: (context, state) {
+
         List<NotesModel> notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
          return
        Expanded(
           child: ListView.builder(
-            itemCount: notes.length != 0 ? notes.length : 6,
+            reverse: true,
+            itemCount: notes.length,
             itemBuilder: (context, index) {
-              return NotesItemCard();
+              return NotesItemCard(notesModel: notes[index],);
             },
           ),
         );

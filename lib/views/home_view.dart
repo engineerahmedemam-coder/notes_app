@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NotesCubit(),
+      create: (context) => NotesCubit()..fetchAllNotes(),
       child: Scaffold(
         floatingActionButton: FloatingButton(),
         body: Column(children: [NotesAppBar(title: 'Notes App', icon: Icons.search, onPressed: () { },), ItemsListBuilder()]),

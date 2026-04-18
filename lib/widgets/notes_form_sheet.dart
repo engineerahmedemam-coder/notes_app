@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/add_notes_cubit/cubit/add_notes_cubit.dart';
+import 'package:notes/cubits/add_notes_cubit/cubit/notes_cubit.dart';
 import 'package:notes/widgets/show_modal_container.dart';
 
 class NotesFormSheet extends StatelessWidget {
@@ -16,6 +17,8 @@ class NotesFormSheet extends StatelessWidget {
         listener: (context, state) {
           // TODO: implement listener
            if (state is AddNotesSuccess) {
+            context.read<NotesCubit>().fetchAllNotes();
+     
             Navigator.pop(context);
           }
           if (state is AddNotesFailure) {
