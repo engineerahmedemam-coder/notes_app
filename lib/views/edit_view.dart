@@ -31,23 +31,10 @@ class _EditViewState extends State<EditView> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                BlocConsumer<NotesCubit, NotesCubitState>(
-                  listener: (context, state) {
-                    // TODO: implement listener
-                  },
-                  builder: (context, state) {
-                    return NotesAppBar(
-                      title: 'Edit',
-                      icon: Icons.check,
-                      onPressed: () {
-                        try{
-                            
-                        }catch{
-
-                        }
-                      },
-                    );
-                  },
+                NotesAppBar(
+                  title: 'Edit',
+                  icon: Icons.check,
+                  onPressed: () {},
                 ),
                 CustomTextField(
                   hintText: 'title',

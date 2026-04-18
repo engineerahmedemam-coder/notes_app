@@ -16,15 +16,7 @@ class NotesAppBar extends StatelessWidget {
           Text(title, style: TextStyle(
             fontSize: 30
           ),),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.grey.withValues(alpha: 0.4)
-            ),
-            padding: EdgeInsets.all(8),
-            
-            child: IconButton(onPressed: onPressed, icon: Icon(icon))
-            )
+          IconButton(onPressed: onPressed, icon: Icon(icon), iconSize: 30,)
         
         ],
       ),
