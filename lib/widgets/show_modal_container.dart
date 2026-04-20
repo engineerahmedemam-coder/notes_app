@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/add_notes_cubit/cubit/add_notes_cubit.dart';
 import 'package:notes/models/notes_model.dart';
 import 'package:notes/widgets/add_button.dart';
+import 'package:notes/widgets/colors_list.dart';
 import 'package:notes/widgets/custom_text_field.dart';
 
 class ShowModalContainer extends StatelessWidget {
@@ -48,6 +49,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 subtitle = value;
               },
             ),
+            SizedBox(height: 38 * 2, child: ColorsList()),
             BlocBuilder<AddNotesCubit, AddNotesState>(
               builder: (context, state) {
                 
